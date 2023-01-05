@@ -19,6 +19,10 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+[v-cloak] {
+    display: none;
+}
 </style>
 </head>
 <body>
@@ -44,10 +48,11 @@
         }, 1000);
     }
   }).mount()
+
 </script>
 
 <!-- v-scope value can be omitted -->
-<div v-scope>
+<div v-scope v-cloak>
   <div v-if="showLoader" class="loader"></div>
 <div v-if="!showLoader">
   <p>{{ count }}</p>
@@ -56,6 +61,5 @@
   <button @click="increment">increment</button>
 </div>
 
-<!-- <script src="https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js" defer init></script> -->
 </body>
 </html>
